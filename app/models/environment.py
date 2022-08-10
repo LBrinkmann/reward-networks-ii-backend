@@ -38,7 +38,7 @@ class Action(SnakeModel):
     def parse(cls, version, idx, **action):
         if version == 'v1':
             return cls(
-                sourceIdx=action['sourceId'], targetIdx=action['targetId'], 
+                sourceIdx=action['sourceId'], targetIdx=action['targetId'],
                 actionTypeIdx=action['rewardId'],
                 actionIdx=idx)
         else:
@@ -79,6 +79,6 @@ class Environment(SnakeModel):
         else:
             raise ValueError('Unkown version')
         return cls(
-            environmentId=environment_id, startingNodeIdx=starting_node_idx, nodes=nodes, 
+            environmentId=environment_id, startingNodeIdx=starting_node_idx, nodes=nodes,
             actions=actions, actionTypes=action_types, nMoves=env['n_steps'], maxReward=env['max_reward']
         )

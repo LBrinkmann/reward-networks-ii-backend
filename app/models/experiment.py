@@ -11,8 +11,8 @@ class Experiment(ExtBaseModel):
     experiment_id: Optional[PyObjectId] = None
     experiment_name: str = None
     treatments: Dict[str, Treatment] = {
-        'control': Treatment(name='control', advisor='human'), 
-        'full': Treatment(name='full', advisor='qtable', explanationType='table'), 
+        'control': Treatment(name='control', advisor='human'),
+        'full': Treatment(name='full', advisor='qtable', explanationType='table'),
     }
     n_chains_per_treatment: int = 4
     n_games_per_chain: int = 3
@@ -34,4 +34,4 @@ class Experiment(ExtBaseModel):
         self.flush()
         return self
 
-Experiment.db().create_index("experimentName", unique=True)
+# Experiment.db().create_index("experimentName", unique=True)

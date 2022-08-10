@@ -1,22 +1,22 @@
 import datetime
 import pymongo
 from app.models.base import ExtBaseModel, PyObjectId
-from typing import Optional, List
+from app.models import Experiment, User, Environment, Chain, Treatment
+from typing import Optional, List, Union
 
 
 class Game(ExtBaseModel):
     game_id: Optional[PyObjectId] = None
-    experiment_id: PyObjectId
-    treatment_name: str
+    experiment_id: Experiment
+    treatment_name: Treatment
     generation: int
     locked: bool
-    child_id: Optional[PyObjectId] = None
-    parentId: Optional[PyObjectId] = None
-    chain_id: PyObjectId
-    user_id: Optional[PyObjectId]
+    parent_id: Optional['Game'] = None
+    chain_id: Chain
+    user_id: Optional[User]
     started: Optional[datetime.datetime]
     finished: Optional[datetime.datetime]
-    environment_ids: List[str]
+    environment_ids: List[Environment]
     total_points: int = 0
 
 

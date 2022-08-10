@@ -42,7 +42,6 @@ class SnakeModel(BaseModel):
 
 
 
-
 class ExtBaseModel(SnakeModel):
     id: Optional[PyObjectId] = Field(default=None, alias='_id')
     created_at: datetime.datetime = datetime.datetime.now()
@@ -78,6 +77,7 @@ class ExtBaseModel(SnakeModel):
 
     @classmethod
     def get(cls, id=None, **kwargs):
+        print('test', kwargs, id)
         query = to_camel(kwargs)
         if id:
             query = {'_id': id, **query}

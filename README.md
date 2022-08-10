@@ -21,6 +21,24 @@ export RN_FRONTEND="$(PWD)/../reward-networks-ii-frontend"
 ./dev_server.sh
 ```
 
+## Visualize Data Model
+
+Install graphviz https://graphviz.org/download/
+
+Install pygraphviz
+
+```
+pip install --global-option=build_ext --global-option="-IC:/usr/local/include/" --global-option="-LC:/usr/local/lib/" pygraphviz
+```
+
+Install erdantic
+
+```
+pip install erdantic
+```
+
+Run design/diagram.ipynb
+
 ## Deployment
 
 ### Logs
